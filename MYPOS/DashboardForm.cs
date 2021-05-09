@@ -111,7 +111,7 @@ namespace MYPOS
 
                 cmd.CommandType = CommandType.Text;
 
-                cmd.CommandText = "Select Count(BillId)From BillTbl";
+                cmd.CommandText = "Select Count(BillId)From BillTbl where BillDate='" + DateTime.Today.Day.ToString() + "/" + DateTime.Today.Month.ToString() + "/" + DateTime.Today.Year.ToString() + "'";
 
                 Int32 rows_count = Convert.ToInt32(cmd.ExecuteScalar());
 
