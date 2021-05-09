@@ -117,7 +117,7 @@ namespace MYPOS
         private void radioYearly_CheckedChanged(object sender, EventArgs e)
         {
             Con.Open();
-            string query = "select ROW_NUMBER() OVER (ORDER BY (SELECT 1)) AS No, b.BillId, b.SellerName, b.BillDate, b.TotAmt from BillTbl as where DATEDIFF(yy, PARSE(BillDate as date USING 'AR-LB'), GETDATE()) = 0";
+            string query = "select ROW_NUMBER() OVER (ORDER BY (SELECT 1)) AS No, b.BillId, b.SellerName, b.BillDate, b.TotAmt from BillTbl as b where DATEDIFF(yy, PARSE(BillDate as date USING 'AR-LB'), GETDATE()) = 0";
             SqlDataAdapter sda = new SqlDataAdapter(query, Con);
             SqlCommandBuilder builder = new SqlCommandBuilder(sda);
             var ds = new DataSet();
